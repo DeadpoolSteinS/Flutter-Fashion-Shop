@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 
 class CardPopular extends StatelessWidget {
-  const CardPopular({Key? key}) : super(key: key);
+  final String title;
+  const CardPopular({
+    Key? key,
+    required this.title,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.redAccent.withOpacity(0.3),
+        image: DecorationImage(
+          image: AssetImage('assets/$title.jpg'),
+          fit: BoxFit.cover,
+        ),
         borderRadius: BorderRadius.circular(8),
       ),
     );

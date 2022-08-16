@@ -14,8 +14,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _page = 0;
   PageController cardVPcontroller =
       PageController(viewportFraction: 0.8, initialPage: 1);
+
+  void updatePage(int page) {
+    setState(() {
+      _page = page;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +32,10 @@ class _HomePageState extends State<HomePage> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Logo(),
+            const Logo(
+              primary: GColors.fontColor,
+              secondary: GColors.secondaryBtn,
+            ),
             Row(
               children: [
                 IconButton(
@@ -69,6 +79,35 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(height: 16),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: 'Favorite',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications),
+            label: 'Notifications',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: 'Cart',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
+        currentIndex: _page,
+        selectedItemColor: GColors.fontColor,
+        unselectedItemColor: GColors.fontColor.withOpacity(0.5),
+        elevation: 4,
+        onTap: updatePage,
       ),
     );
   }

@@ -23,7 +23,7 @@ class _SearchState extends State<Search> {
             color: GColors.fontColor,
           ),
           filled: true,
-          fillColor: Color.fromARGB(255, 242, 241, 241),
+          fillColor: GColors.bgGray,
           contentPadding: EdgeInsets.only(top: 10),
           // border: OutlineInputBorder(
           //   borderRadius: BorderRadius.all(

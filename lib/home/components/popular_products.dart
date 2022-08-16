@@ -20,10 +20,10 @@ class PopularProducts extends StatelessWidget {
             crossAxisSpacing: 16,
             crossAxisCount: 2,
             children: const [
-              CardPopular(),
-              CardPopular(),
-              CardPopular(),
-              CardPopular(),
+              CardPopular(title: 'image_1'),
+              CardPopular(title: 'image_1'),
+              CardPopular(title: 'image_1'),
+              CardPopular(title: 'image_1'),
             ],
           )
         ],

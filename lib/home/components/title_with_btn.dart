@@ -1,3 +1,4 @@
+import 'package:fashion_shop/constant/g_colors.dart';
 import 'package:flutter/material.dart';
 
 class TitleWithBtn extends StatelessWidget {
@@ -20,10 +21,10 @@ class TitleWithBtn extends StatelessWidget {
             fontSize: 16,
           ),
         ),
-        Text(
+        const Text(
           "Show All",
           style: TextStyle(
-            color: Colors.redAccent.withOpacity(0.5),
+            color: GColors.secondaryBtn,
           ),
         )
       ],
