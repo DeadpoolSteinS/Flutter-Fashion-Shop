@@ -15,17 +15,15 @@ class _SearchState extends State<Search> {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(16),
-      height: 42,
+      height: 60,
       child: TextFormField(
         decoration: const InputDecoration(
-          prefixIcon: InkWell(
-            child: Icon(
-              Icons.search,
-              color: GColors.fontColor,
-            ),
+          prefixIcon: Icon(
+            Icons.search,
+            color: GColors.fontColor,
           ),
           filled: true,
-          fillColor: Color.fromARGB(255, 214, 209, 209),
+          fillColor: Color.fromARGB(255, 242, 241, 241),
           contentPadding: EdgeInsets.only(top: 10),
           // border: OutlineInputBorder(
           //   borderRadius: BorderRadius.all(
@@ -34,21 +32,25 @@ class _SearchState extends State<Search> {
           // ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(
-              Radius.circular(16),
+              Radius.circular(8),
             ),
             borderSide: BorderSide.none,
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(
-              Radius.circular(16),
+              Radius.circular(8),
             ),
             borderSide: BorderSide(color: GColors.fontColor),
           ),
-          // hintText: 'Search Amazon',
+          hintText: 'Search for products',
           // hintStyle: TextStyle(
           //   fontWeight: FontWeight.w500,
           //   fontSize: 17,
           // ),
+          suffixIcon: Icon(
+            Icons.tune,
+            color: GColors.fontColor,
+          ),
         ),
       ),
     );
