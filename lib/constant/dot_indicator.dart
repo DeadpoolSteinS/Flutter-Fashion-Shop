@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 
 class DotIndicator extends StatelessWidget {
   final bool isActive;
+  final Color activeColor;
+
   const DotIndicator({
     Key? key,
     required this.isActive,
+    required this.activeColor,
   }) : super(key: key);
 
   @override
@@ -34,7 +37,7 @@ class DotIndicator extends StatelessWidget {
           //         )
           // ],
           shape: BoxShape.circle,
-          color: isActive ? GColors.fontColor : const Color(0XFFEAEAEA),
+          color: isActive ? activeColor : GColors.cardBg,
         ),
       ),
     );

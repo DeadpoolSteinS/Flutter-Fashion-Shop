@@ -1,4 +1,3 @@
-import 'package:fashion_shop/constant/g_colors.dart';
 import 'package:flutter/material.dart';
 
 class Logo extends StatelessWidget {

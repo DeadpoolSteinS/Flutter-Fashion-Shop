@@ -1,5 +1,5 @@
-import 'package:fashion_shop/home/components/collections/card_collection.dart';
-import 'package:fashion_shop/home/components/title_with_btn.dart';
+import 'package:fashion_shop/home/widgets/collections/card_collection.dart';
+import 'package:fashion_shop/constant/title_with_btn.dart';
 import 'package:flutter/material.dart';
 
 class Collections extends StatelessWidget {

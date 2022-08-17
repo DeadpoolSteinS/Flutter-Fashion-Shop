@@ -1,4 +1,6 @@
-import 'package:fashion_shop/home/home_page.dart';
+import 'package:fashion_shop/bottom_bar.dart';
+import 'package:fashion_shop/constant/g_colors.dart';
+import 'package:fashion_shop/router.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,8 +19,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         fontFamily: 'Switzer',
+        appBarTheme: const AppBarTheme(
+          iconTheme: IconThemeData(
+            color: GColors.fontColor,
+          ),
+        ),
       ),
-      home: const HomePage(),
+      onGenerateRoute: (settings) => generateRoute(settings),
+      home: const BottomBar(),
     );
   }
 }

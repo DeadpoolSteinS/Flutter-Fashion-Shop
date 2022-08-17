@@ -1,28 +1,25 @@
 import 'package:fashion_shop/constant/dot_indicator.dart';
 import 'package:fashion_shop/constant/g_colors.dart';
-import 'package:fashion_shop/constant/logo.dart';
-import 'package:fashion_shop/home/widgets/card_viewpage.dart';
-import 'package:fashion_shop/home/widgets/collections.dart';
-import 'package:fashion_shop/home/widgets/popular_products.dart';
-import 'package:fashion_shop/home/widgets/search.dart';
+import 'package:fashion_shop/detail_product/image_viewpage.dart';
+import 'package:fashion_shop/detail_product/option_product.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  static const String routeName = '/home';
-  const HomePage({Key? key}) : super(key: key);
+class DetailProductScreen extends StatefulWidget {
+  static const String routeName = '/detail-product';
+  const DetailProductScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<DetailProductScreen> createState() => _DetailProductScreenState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _DetailProductScreenState extends State<DetailProductScreen> {
   int pageViewIndex = 1;
   late PageController cardVPcontroller;
 
   @override
   void initState() {
     cardVPcontroller =
-        PageController(viewportFraction: 0.8, initialPage: pageViewIndex);
+        PageController(viewportFraction: 0.9, initialPage: pageViewIndex);
     super.initState();
   }
 
@@ -34,39 +31,43 @@ class _HomePageState extends State<HomePage> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Logo(
-              primary: GColors.fontColor,
-              secondary: GColors.secondaryBtn,
+            const Text(
+              "Product Details",
+              style: TextStyle(
+                color: GColors.fontColor,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             Row(
               children: [
                 IconButton(
                   onPressed: () {},
                   icon: const Icon(
-                    Icons.flip,
+                    Icons.favorite_border,
                     color: GColors.fontColor,
                   ),
                 ),
                 IconButton(
                   onPressed: () {},
                   icon: const Icon(
-                    Icons.chat_bubble_outline,
+                    Icons.shopping_cart_checkout,
                     color: GColors.fontColor,
                   ),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const Search(),
-            Column(
+            const SizedBox(height: 20),
+            Stack(
               children: [
-                SizedBox(
-                  height: 200,
+                AspectRatio(
+                  aspectRatio: 1 / 0.9,
                   child: PageView(
                     controller: cardVPcontroller,
                     onPageChanged: (int page) {
@@ -75,24 +76,22 @@ class _HomePageState extends State<HomePage> {
                       });
                     },
                     children: const [
-                      CardViewpage(),
-                      CardViewpage(),
-                      CardViewpage(),
+                      ImageViewPage(),
+                      ImageViewPage(),
+                      ImageViewPage(),
                     ],
                   ),
                 ),
-                const SizedBox(height: 16),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: listDotIndicator(GColors.fontColor),
+                Container(
+                  margin: const EdgeInsets.only(top: 320),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: listDotIndicator(Colors.white),
+                  ),
                 ),
               ],
             ),
-            const SizedBox(height: 16),
-            const Collections(),
-            const SizedBox(height: 16),
-            const PopularProducts(),
-            const SizedBox(height: 16),
+            const OptionProduct(),
           ],
         ),
       ),
