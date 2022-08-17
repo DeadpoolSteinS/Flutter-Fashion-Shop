@@ -1,7 +1,7 @@
 import 'package:fashion_shop/constant/dot_indicator.dart';
 import 'package:fashion_shop/constant/g_colors.dart';
-import 'package:fashion_shop/detail_product/image_viewpage.dart';
-import 'package:fashion_shop/detail_product/option_product.dart';
+import 'package:fashion_shop/detail_product/widgets/image_viewpage.dart';
+import 'package:fashion_shop/detail_product/widgets/option_product.dart';
 import 'package:flutter/material.dart';
 
 class DetailProductScreen extends StatefulWidget {
