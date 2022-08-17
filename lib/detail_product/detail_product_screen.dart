@@ -100,40 +100,43 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
               ),
             ),
           ),
-          Container(
-            height: 80,
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            decoration: const BoxDecoration(
-              color: Colors.black12,
-              borderRadius: BorderRadius.vertical(
-                top: Radius.circular(20),
-              ),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
-                      r"$50.00",
-                      style: TextStyle(
-                        color: GColors.fontColor,
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      "Price",
-                      style: TextStyle(
-                        color: Colors.black26,
-                      ),
-                    ),
-                  ],
+          Material(
+            elevation: 4,
+            child: Container(
+              height: 80,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              decoration: const BoxDecoration(
+                // color: Colors.black12,
+                borderRadius: BorderRadius.vertical(
+                  top: Radius.circular(20),
                 ),
-                const OvalButton(text: "Add to Cart"),
-              ],
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text(
+                        r"$50.00",
+                        style: TextStyle(
+                          color: GColors.fontColor,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        "Price",
+                        style: TextStyle(
+                          color: Colors.black45,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const OvalButton(text: "Add to Cart"),
+                ],
+              ),
             ),
           )
         ],
