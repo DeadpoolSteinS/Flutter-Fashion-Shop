@@ -1,5 +1,6 @@
 import 'package:fashion_shop/constant/g_colors.dart';
 import 'package:fashion_shop/constant/logo.dart';
+import 'package:fashion_shop/constant/oval_button.dart';
 import 'package:flutter/material.dart';
 
 class CardViewpage extends StatelessWidget {
@@ -16,12 +17,29 @@ class CardViewpage extends StatelessWidget {
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
               Logo(primary: Colors.white),
+              Text(
+                "TAC",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
             ],
           ),
+          const Text(
+            "Free shipping on\nany products",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const OvalButton(text: "Shop Now"),
         ],
       ),
     );

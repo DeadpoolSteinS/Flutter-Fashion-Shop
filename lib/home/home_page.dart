@@ -1,3 +1,4 @@
+import 'package:fashion_shop/constant/dot_indicator.dart';
 import 'package:fashion_shop/constant/g_colors.dart';
 import 'package:fashion_shop/constant/logo.dart';
 import 'package:fashion_shop/home/components/card_viewpage.dart';
@@ -14,9 +15,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _page = 0;
-  PageController cardVPcontroller =
-      PageController(viewportFraction: 0.8, initialPage: 1);
+  int _page = 0, pageViewIndex = 1;
+  late PageController cardVPcontroller;
+
+  @override
+  void initState() {
+    cardVPcontroller =
+        PageController(viewportFraction: 0.8, initialPage: pageViewIndex);
+    super.initState();
+  }
 
   void updatePage(int page) {
     setState(() {
@@ -61,16 +68,30 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             const Search(),
-            SizedBox(
-              height: 200,
-              child: PageView(
-                controller: cardVPcontroller,
-                children: const [
-                  CardViewpage(),
-                  CardViewpage(),
-                  CardViewpage(),
-                ],
-              ),
+            Column(
+              children: [
+                SizedBox(
+                  height: 200,
+                  child: PageView(
+                    controller: cardVPcontroller,
+                    onPageChanged: (int page) {
+                      setState(() {
+                        pageViewIndex = page;
+                      });
+                    },
+                    children: const [
+                      CardViewpage(),
+                      CardViewpage(),
+                      CardViewpage(),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: listDotIndicator(),
+                )
+              ],
             ),
             const SizedBox(height: 16),
             const Collections(),
@@ -110,5 +131,15 @@ class _HomePageState extends State<HomePage> {
         onTap: updatePage,
       ),
     );
+  }
+
+  List<Widget> listDotIndicator() {
+    List<Widget> list = [];
+    for (int i = 0; i < 3; i++) {
+      list.add(i == pageViewIndex
+          ? const DotIndicator(isActive: true)
+          : const DotIndicator(isActive: false));
+    }
+    return list;
   }
 }
