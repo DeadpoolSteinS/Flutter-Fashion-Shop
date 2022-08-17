@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 
 class TitleWithBtn extends StatelessWidget {
   final String title;
+  final String btn;
 
   const TitleWithBtn({
     Key? key,
     required this.title,
+    this.btn = "Show All",
   }) : super(key: key);
 
   @override
@@ -21,9 +23,9 @@ class TitleWithBtn extends StatelessWidget {
             fontSize: 16,
           ),
         ),
-        const Text(
-          "Show All",
-          style: TextStyle(
+        Text(
+          btn,
+          style: const TextStyle(
             color: GColors.secondaryBtn,
           ),
         )

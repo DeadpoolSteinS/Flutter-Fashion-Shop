@@ -1,5 +1,6 @@
 import 'package:fashion_shop/constant/dot_indicator.dart';
 import 'package:fashion_shop/constant/g_colors.dart';
+import 'package:fashion_shop/constant/oval_button.dart';
 import 'package:fashion_shop/detail_product/widgets/image_viewpage.dart';
 import 'package:fashion_shop/detail_product/widgets/option_product.dart';
 import 'package:flutter/material.dart';
@@ -60,40 +61,82 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
           ],
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 20),
-            Stack(
-              children: [
-                AspectRatio(
-                  aspectRatio: 1 / 0.9,
-                  child: PageView(
-                    controller: cardVPcontroller,
-                    onPageChanged: (int page) {
-                      setState(() {
-                        pageViewIndex = page;
-                      });
-                    },
-                    children: const [
-                      ImageViewPage(),
-                      ImageViewPage(),
-                      ImageViewPage(),
+      body: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const SizedBox(height: 20),
+                  Stack(
+                    children: [
+                      AspectRatio(
+                        aspectRatio: 1 / 0.9,
+                        child: PageView(
+                          controller: cardVPcontroller,
+                          onPageChanged: (int page) {
+                            setState(() {
+                              pageViewIndex = page;
+                            });
+                          },
+                          children: const [
+                            ImageViewPage(),
+                            ImageViewPage(),
+                            ImageViewPage(),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(top: 320),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: listDotIndicator(Colors.white),
+                        ),
+                      ),
                     ],
                   ),
+                  const OptionProduct(),
+                ],
+              ),
+            ),
+          ),
+          Container(
+            height: 80,
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            decoration: const BoxDecoration(
+              color: Colors.black12,
+              borderRadius: BorderRadius.vertical(
+                top: Radius.circular(20),
+              ),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      r"$50.00",
+                      style: TextStyle(
+                        color: GColors.fontColor,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Price",
+                      style: TextStyle(
+                        color: Colors.black26,
+                      ),
+                    ),
+                  ],
                 ),
-                Container(
-                  margin: const EdgeInsets.only(top: 320),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: listDotIndicator(Colors.white),
-                  ),
-                ),
+                const OvalButton(text: "Add to Cart"),
               ],
             ),
-            const OptionProduct(),
-          ],
-        ),
+          )
+        ],
       ),
     );
   }

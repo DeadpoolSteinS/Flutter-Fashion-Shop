@@ -1,5 +1,8 @@
+import 'package:fashion_shop/detail_product/constant/color_cyrcle.dart';
 import 'package:fashion_shop/constant/g_colors.dart';
 import 'package:fashion_shop/constant/stock_text.dart';
+import 'package:fashion_shop/constant/title_with_btn.dart';
+import 'package:fashion_shop/detail_product/constant/size_product_cyrcle.dart';
 import 'package:flutter/material.dart';
 
 class OptionProduct extends StatelessWidget {
@@ -95,10 +98,55 @@ class OptionProduct extends StatelessWidget {
               ),
             ],
           ),
-          Container(
-            width: double.infinity,
-            height: 10,
-            color: Colors.redAccent.withOpacity(0.3),
+          const SizedBox(height: 20),
+          Row(
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "Colors",
+                    style: TextStyle(
+                      color: GColors.fontColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: const [
+                      ColorCyrcle(color: Colors.red),
+                      SizedBox(width: 4),
+                      ColorCyrcle(color: Colors.blue),
+                      SizedBox(width: 4),
+                      ColorCyrcle(color: Colors.black45),
+                      SizedBox(width: 4),
+                      ColorCyrcle(color: Colors.yellow),
+                    ],
+                  )
+                ],
+              ),
+              const SizedBox(width: 72),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const TitleWithBtn(title: "Sizes", btn: "Size Guide"),
+                    const SizedBox(height: 8),
+                    Row(
+                      children: const [
+                        SizeProductCyrcle(size: "S"),
+                        SizedBox(width: 4),
+                        SizeProductCyrcle(size: "M"),
+                        SizedBox(width: 4),
+                        SizeProductCyrcle(size: "L"),
+                        SizedBox(width: 4),
+                        SizeProductCyrcle(size: "XL"),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ],
           )
         ],
       ),
