@@ -11,7 +11,7 @@ class ImageViewPage extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         image: const DecorationImage(
-          image: AssetImage('assets/image_1.jpg'),
+          image: AssetImage('assets/product_1.jpg'),
           fit: BoxFit.cover,
         ),
       ),
