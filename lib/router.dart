@@ -1,5 +1,6 @@
 import 'package:fashion_shop/bottom_bar.dart';
 import 'package:fashion_shop/detail_product/detail_product_screen.dart';
+import 'package:fashion_shop/models/product_model.dart';
 import 'package:flutter/material.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
@@ -10,9 +11,10 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         builder: (_) => const BottomBar(),
       );
     case DetailProductScreen.routeName:
+      var product = routeSettings.arguments as Product;
       return MaterialPageRoute(
         settings: routeSettings,
-        builder: (_) => const DetailProductScreen(),
+        builder: (_) => DetailProductScreen(product: product),
       );
     default:
       return MaterialPageRoute(

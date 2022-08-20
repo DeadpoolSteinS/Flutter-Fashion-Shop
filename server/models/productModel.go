@@ -1,6 +1,7 @@
 package models
 
 type Product struct {
-	Title string
-	Price string
+	Title string `bson:"title"`
+	Price int    `bson:"price"`
+	Image string `bson:"image"`
 }

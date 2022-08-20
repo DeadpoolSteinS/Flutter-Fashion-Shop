@@ -2,36 +2,37 @@ package controllers
 
 import (
 	"context"
+	"encoding/json"
 	"fashion-shop/constant"
 	"fashion-shop/initializers"
 	"fashion-shop/models"
-	"fmt"
+	"net/http"
 
-	"github.com/gin-gonic/gin"
+	"github.com/julienschmidt/httprouter"
 	"go.mongodb.org/mongo-driver/bson"
 )
 
-func CreateProduct(c *gin.Context) {
-	var body struct {
-		Title string
-		Price string
-	}
-	c.Bind(&body)
+// func CreateProduct(c *gin.Context) {
+// 	var body struct {
+// 		Title string
+// 		Price string
+// 	}
+// 	c.Bind(&body)
 
-	product := models.Product{
-		Title: body.Title,
-		Price: body.Price,
-	}
-	result, err := initializers.ProductColl.InsertOne(context.TODO(), product)
-	constant.CheckError(err)
-	fmt.Println(result.InsertedID)
+// 	product := models.Product{
+// 		Title: body.Title,
+// 		Price: body.Price,
+// 	}
+// 	result, err := initializers.ProductColl.InsertOne(context.TODO(), product)
+// 	constant.CheckError(err)
+// 	fmt.Println(result.InsertedID)
 
-	c.JSON(200, gin.H{
-		"product": product,
-	})
-}
+// 	c.JSON(200, gin.H{
+// 		"product": product,
+// 	})
+// }
 
-func GetAll(c *gin.Context) {
+func GetAll(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	var products []models.Product
 
 	result, err := initializers.ProductColl.Find(context.TODO(), bson.D{{}})
@@ -44,7 +45,7 @@ func GetAll(c *gin.Context) {
 		products = append(products, elem)
 	}
 
-	c.JSON(200, gin.H{
-		"product": products,
-	})
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(products)
+	// c.JSON(products)
 }

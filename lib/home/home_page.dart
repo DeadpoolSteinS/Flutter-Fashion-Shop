@@ -1,10 +1,12 @@
 import 'package:fashion_shop/constant/dot_indicator.dart';
 import 'package:fashion_shop/constant/g_colors.dart';
 import 'package:fashion_shop/constant/logo.dart';
+import 'package:fashion_shop/home/home_services.dart';
 import 'package:fashion_shop/home/widgets/card_viewpage.dart';
 import 'package:fashion_shop/home/widgets/collections.dart';
 import 'package:fashion_shop/home/widgets/popular_products.dart';
 import 'package:fashion_shop/home/widgets/search.dart';
+import 'package:fashion_shop/models/product_model.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -17,13 +19,22 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int pageViewIndex = 1;
+  List<Product> products = [];
+
   late PageController cardVPcontroller;
+  final HomeServices homeServices = HomeServices();
 
   @override
   void initState() {
     cardVPcontroller =
         PageController(viewportFraction: 0.8, initialPage: pageViewIndex);
+    fetchPopularProducts();
     super.initState();
+  }
+
+  Future<void> fetchPopularProducts() async {
+    products = await homeServices.fetchPopularProduct(context: context);
+    setState(() {});
   }
 
   @override
@@ -91,7 +102,7 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(height: 16),
             const Collections(),
             const SizedBox(height: 16),
-            const PopularProducts(),
+            PopularProducts(products: products),
             const SizedBox(height: 16),
           ],
         ),

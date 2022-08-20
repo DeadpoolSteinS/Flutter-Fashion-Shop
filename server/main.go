@@ -3,8 +3,10 @@ package main
 import (
 	"fashion-shop/controllers"
 	"fashion-shop/initializers"
+	"log"
+	"net/http"
 
-	"github.com/gin-gonic/gin"
+	"github.com/julienschmidt/httprouter"
 )
 
 func init() {
@@ -13,8 +15,10 @@ func init() {
 }
 
 func main() {
-	r := gin.Default()
+	r := httprouter.New()
 	r.GET("/", controllers.GetAll)
-	r.POST("/create", controllers.CreateProduct)
-	r.Run()
+	// r.POST("/create", controllers.CreateProduct)
+
+	log.Println("listen on http://localhost:3000")
+	log.Fatal(http.ListenAndServe(":3000", r))
 }

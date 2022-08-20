@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ImageViewPage extends StatelessWidget {
-  const ImageViewPage({Key? key}) : super(key: key);
+  final String imageUrl;
+
+  const ImageViewPage({
+    Key? key,
+    required this.imageUrl,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -10,8 +15,8 @@ class ImageViewPage extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        image: const DecorationImage(
-          image: AssetImage('assets/product_1.jpg'),
+        image: DecorationImage(
+          image: NetworkImage(imageUrl),
           fit: BoxFit.cover,
         ),
       ),

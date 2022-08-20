@@ -3,11 +3,17 @@ import 'package:fashion_shop/constant/g_colors.dart';
 import 'package:fashion_shop/constant/oval_button.dart';
 import 'package:fashion_shop/detail_product/widgets/image_viewpage.dart';
 import 'package:fashion_shop/detail_product/widgets/option_product.dart';
+import 'package:fashion_shop/models/product_model.dart';
 import 'package:flutter/material.dart';
 
 class DetailProductScreen extends StatefulWidget {
   static const String routeName = '/detail-product';
-  const DetailProductScreen({Key? key}) : super(key: key);
+  final Product product;
+
+  const DetailProductScreen({
+    Key? key,
+    required this.product,
+  }) : super(key: key);
 
   @override
   State<DetailProductScreen> createState() => _DetailProductScreenState();
@@ -79,10 +85,10 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
                               pageViewIndex = page;
                             });
                           },
-                          children: const [
-                            ImageViewPage(),
-                            ImageViewPage(),
-                            ImageViewPage(),
+                          children: [
+                            ImageViewPage(imageUrl: widget.product.image),
+                            ImageViewPage(imageUrl: widget.product.image),
+                            ImageViewPage(imageUrl: widget.product.image),
                           ],
                         ),
                       ),
@@ -95,7 +101,7 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
                       ),
                     ],
                   ),
-                  const OptionProduct(),
+                  OptionProduct(title: widget.product.title),
                 ],
               ),
             ),
@@ -117,16 +123,16 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
-                        r"$50.00",
-                        style: TextStyle(
+                        r"$" "${widget.product.price}.00",
+                        style: const TextStyle(
                           color: GColors.fontColor,
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Text(
+                      const Text(
                         "Price",
                         style: TextStyle(
                           color: Colors.black45,

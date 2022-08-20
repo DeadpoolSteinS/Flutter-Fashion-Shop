@@ -6,7 +6,12 @@ import 'package:fashion_shop/detail_product/constant/size_product_cyrcle.dart';
 import 'package:flutter/material.dart';
 
 class OptionProduct extends StatelessWidget {
-  const OptionProduct({Key? key}) : super(key: key);
+  final String title;
+
+  const OptionProduct({
+    Key? key,
+    required this.title,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,18 +22,22 @@ class OptionProduct extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              Text(
-                "Zara - Jacket With\nPockets",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
+            children: [
+              Container(
+                constraints: const BoxConstraints(maxWidth: 250),
+                child: Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-              StockText(
-                  title: "in Stock",
-                  font: GColors.primaryBtn,
-                  background: Color.fromARGB(47, 75, 179, 59))
+              const StockText(
+                title: "in Stock",
+                font: GColors.primaryBtn,
+                background: Color.fromARGB(47, 75, 179, 59),
+              ),
             ],
           ),
           const SizedBox(height: 8),
