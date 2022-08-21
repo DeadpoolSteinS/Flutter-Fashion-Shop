@@ -1,5 +1,7 @@
+import 'package:fashion_shop/cart/screens/cart_screen.dart';
 import 'package:fashion_shop/constant/g_colors.dart';
 import 'package:fashion_shop/home/home_page.dart';
+import 'package:fashion_shop/profile/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 class BottomBar extends StatefulWidget {
@@ -11,14 +13,14 @@ class BottomBar extends StatefulWidget {
 }
 
 class _BottomBarState extends State<BottomBar> {
-  int _page = 0;
+  int _page = 4;
 
   List<Widget> listPage = [
     const HomePage(),
     const Scaffold(),
     const Scaffold(),
-    const Scaffold(),
-    const Scaffold(),
+    const CartScreen(),
+    const ProfileScreen(),
   ];
 
   void updatePage(int page) {
