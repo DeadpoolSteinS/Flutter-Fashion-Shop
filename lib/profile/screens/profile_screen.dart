@@ -80,6 +80,7 @@ class ProfileScreen extends StatelessWidget {
                           ),
                         ),
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Row(
                               children: [
@@ -89,7 +90,7 @@ class ProfileScreen extends StatelessWidget {
                                     shape: BoxShape.circle,
                                     color: Colors.black12,
                                   ),
-                                  child: const Icon(Icons.archive),
+                                  child: const Icon(Icons.archive_outlined),
                                 ),
                                 const SizedBox(width: 16),
                                 const Text(
@@ -100,6 +101,135 @@ class ProfileScreen extends StatelessWidget {
                                   ),
                                 ),
                               ],
+                            ),
+                            const Icon(
+                              Icons.arrow_forward_ios,
+                              color: Colors.black54,
+                              size: 20,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        decoration: const BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(
+                              color: Colors.black12,
+                              width: 2,
+                            ),
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.all(8),
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.black12,
+                                  ),
+                                  child: const Icon(Icons.person_outline),
+                                ),
+                                const SizedBox(width: 16),
+                                const Text(
+                                  "Personal Data",
+                                  style: TextStyle(
+                                    color: GColors.fontColor,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const Icon(
+                              Icons.arrow_forward_ios,
+                              color: Colors.black54,
+                              size: 20,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        decoration: const BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(
+                              color: Colors.black12,
+                              width: 2,
+                            ),
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.all(8),
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.black12,
+                                  ),
+                                  child: const Icon(Icons.home_outlined),
+                                ),
+                                const SizedBox(width: 16),
+                                const Text(
+                                  "Address Book",
+                                  style: TextStyle(
+                                    color: GColors.fontColor,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const Icon(
+                              Icons.arrow_forward_ios,
+                              color: Colors.black54,
+                              size: 20,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        decoration: const BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(
+                              color: Colors.black12,
+                              width: 2,
+                            ),
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.all(8),
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.black12,
+                                  ),
+                                  child: const Icon(
+                                      Icons.account_balance_wallet_outlined),
+                                ),
+                                const SizedBox(width: 16),
+                                const Text(
+                                  "Payment Method",
+                                  style: TextStyle(
+                                    color: GColors.fontColor,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const Icon(
+                              Icons.arrow_forward_ios,
+                              color: Colors.black54,
+                              size: 20,
                             ),
                           ],
                         ),

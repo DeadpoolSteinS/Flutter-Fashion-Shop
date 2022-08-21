@@ -30,6 +30,13 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
     super.initState();
   }
 
+  void addToCart() {
+    // productDetailsServices.addToCart(
+    //   context: context,
+    //   product: widget.product,
+    // );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -140,7 +147,12 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
                       ),
                     ],
                   ),
-                  const OvalButton(text: "Add to Cart"),
+                  OvalButton(
+                    text: "Add to Cart",
+                    onTap: () {
+                      addToCart();
+                    },
+                  ),
                 ],
               ),
             ),

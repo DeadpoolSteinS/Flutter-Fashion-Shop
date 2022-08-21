@@ -4,11 +4,13 @@ class Product {
   final String title;
   final int price;
   final String image;
+  final String? id;
 
   Product({
     required this.title,
     required this.price,
     required this.image,
+    this.id,
   });
 
   Map<String, dynamic> toMap() {
@@ -16,6 +18,7 @@ class Product {
       'title': title,
       'price': price,
       'image': image,
+      'id': id,
     };
   }
 
@@ -24,6 +27,7 @@ class Product {
       title: map['Title'] ?? '',
       price: map['Price'] ?? 0,
       image: map['Image'] ?? '',
+      id: map['_id'],
     );
   }
 
