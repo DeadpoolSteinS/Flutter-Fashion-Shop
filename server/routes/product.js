@@ -29,17 +29,17 @@ productRouter.post("/api/add-product", async (req, res) => {
 });
 
 // create a get request to search products and get them
-// productRouter.get("/api/products/search/:name", async (req, res) => {
-//   try {
-//     const products = await Product.find({
-//       name: { $regex: req.params.name, $options: "i" },
-//     });
+productRouter.get("/api/products/search/:name", async (req, res) => {
+  try {
+    const products = await Product.find({
+      name: { $regex: req.params.name, $options: "i" },
+    });
 
-//     res.json(products);
-//   } catch (e) {
-//     res.status(500).json({ error: e.message });
-//   }
-// });
+    res.json(products);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
 
 // // create a post request route to rate the product.
 // productRouter.post("/api/rate-product", async (req, res) => {
