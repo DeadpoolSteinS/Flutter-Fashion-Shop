@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 const { productSchema } = require("./product");
 
 const cartSchema = mongoose.Schema({
-  products: {
-    product: productSchema,
+  product: {
+    type: productSchema,
     required: true,
   },
   quantity: {
