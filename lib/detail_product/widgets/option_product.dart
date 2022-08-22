@@ -3,14 +3,15 @@ import 'package:fashion_shop/constant/g_colors.dart';
 import 'package:fashion_shop/constant/stock_text.dart';
 import 'package:fashion_shop/constant/title_with_btn.dart';
 import 'package:fashion_shop/detail_product/constant/size_product_cyrcle.dart';
+import 'package:fashion_shop/models/product_model.dart';
 import 'package:flutter/material.dart';
 
 class OptionProduct extends StatelessWidget {
-  final String title;
+  final Product product;
 
   const OptionProduct({
     Key? key,
-    required this.title,
+    required this.product,
   }) : super(key: key);
 
   @override
@@ -26,7 +27,7 @@ class OptionProduct extends StatelessWidget {
               Container(
                 constraints: const BoxConstraints(maxWidth: 250),
                 child: Text(
-                  title,
+                  "${product.merk} - ${product.name}",
                   style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,

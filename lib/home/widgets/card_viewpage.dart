@@ -39,7 +39,10 @@ class CardViewpage extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          const OvalButton(text: "Shop Now"),
+          OvalButton(
+            text: "Shop Now",
+            onTap: () {},
+          ),
         ],
       ),
     );

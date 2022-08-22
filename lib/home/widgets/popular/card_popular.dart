@@ -30,7 +30,7 @@ class _CardPopularState extends State<CardPopular> {
       child: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: NetworkImage(widget.product.image),
+            image: NetworkImage(widget.product.images[0]),
             fit: BoxFit.cover,
           ),
           borderRadius: BorderRadius.circular(8),

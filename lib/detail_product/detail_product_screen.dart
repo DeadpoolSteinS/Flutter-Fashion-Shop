@@ -1,6 +1,7 @@
 import 'package:fashion_shop/constant/dot_indicator.dart';
 import 'package:fashion_shop/constant/g_colors.dart';
 import 'package:fashion_shop/constant/oval_button.dart';
+import 'package:fashion_shop/detail_product/services/detail_product_services.dart';
 import 'package:fashion_shop/detail_product/widgets/image_viewpage.dart';
 import 'package:fashion_shop/detail_product/widgets/option_product.dart';
 import 'package:fashion_shop/models/product_model.dart';
@@ -20,8 +21,9 @@ class DetailProductScreen extends StatefulWidget {
 }
 
 class _DetailProductScreenState extends State<DetailProductScreen> {
-  int pageViewIndex = 1;
+  int pageViewIndex = 0;
   late PageController cardVPcontroller;
+  final DetailProductServices detailProductServices = DetailProductServices();
 
   @override
   void initState() {
@@ -31,6 +33,10 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
   }
 
   void addToCart() {
+    detailProductServices.addToCart(
+      context: context,
+      product: widget.product,
+    );
     // productDetailsServices.addToCart(
     //   context: context,
     //   product: widget.product,
@@ -85,18 +91,19 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
                     children: [
                       AspectRatio(
                         aspectRatio: 1 / 0.9,
-                        child: PageView(
+                        child: PageView.builder(
                           controller: cardVPcontroller,
                           onPageChanged: (int page) {
                             setState(() {
                               pageViewIndex = page;
                             });
                           },
-                          children: [
-                            ImageViewPage(imageUrl: widget.product.image),
-                            ImageViewPage(imageUrl: widget.product.image),
-                            ImageViewPage(imageUrl: widget.product.image),
-                          ],
+                          itemCount: widget.product.images.length,
+                          itemBuilder: ((context, index) {
+                            return ImageViewPage(
+                              imageUrl: widget.product.images[index],
+                            );
+                          }),
                         ),
                       ),
                       Container(
@@ -108,7 +115,7 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
                       ),
                     ],
                   ),
-                  OptionProduct(title: widget.product.title),
+                  OptionProduct(product: widget.product),
                 ],
               ),
             ),
@@ -132,7 +139,7 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        r"$" "${widget.product.price}.00",
+                        r"$" "${widget.product.price.toStringAsFixed(2)}",
                         style: const TextStyle(
                           color: GColors.fontColor,
                           fontSize: 24,
@@ -164,7 +171,7 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
 
   List<Widget> listDotIndicator(Color color) {
     List<Widget> list = [];
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < widget.product.images.length; i++) {
       list.add(i == pageViewIndex
           ? DotIndicator(isActive: true, activeColor: color)
           : DotIndicator(isActive: false, activeColor: color));

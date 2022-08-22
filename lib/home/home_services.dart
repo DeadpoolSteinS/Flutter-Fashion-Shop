@@ -14,7 +14,7 @@ class HomeServices {
     List<Product> productList = [];
     try {
       http.Response res = await http.get(
-        Uri.parse('$uri/'),
+        Uri.parse('$uri/api/popular-products/'),
         headers: {
           'Content-Type': 'application/json; charset=UTF-8',
         },

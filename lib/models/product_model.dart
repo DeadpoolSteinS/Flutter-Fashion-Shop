@@ -1,32 +1,48 @@
 import 'dart:convert';
 
 class Product {
-  final String title;
-  final int price;
-  final String image;
+  final String name;
+  // final String description;
+  // final double quantity;
+  final List<String> images;
+  final String category;
+  final double price;
+  final String merk;
   final String? id;
 
   Product({
-    required this.title,
+    required this.name,
+    // required this.description,
+    // required this.quantity,
+    required this.images,
+    required this.category,
     required this.price,
-    required this.image,
+    required this.merk,
     this.id,
   });
 
   Map<String, dynamic> toMap() {
     return {
-      'title': title,
+      'name': name,
+      // 'description': description,
+      // 'quantity': quantity,
+      'images': images,
+      'category': category,
       'price': price,
-      'image': image,
+      'merk': merk,
       'id': id,
     };
   }
 
   factory Product.fromMap(Map<String, dynamic> map) {
     return Product(
-      title: map['Title'] ?? '',
-      price: map['Price'] ?? 0,
-      image: map['Image'] ?? '',
+      name: map['name'] ?? '',
+      // description: map['description'] ?? '',
+      // quantity: map['quantity']?.toDouble() ?? 0.0,
+      images: List<String>.from(map['images']),
+      category: map['category'] ?? '',
+      price: map['price']?.toDouble() ?? 0.0,
+      merk: map['merk'] ?? '',
       id: map['_id'],
     );
   }
