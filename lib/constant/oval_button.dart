@@ -2,13 +2,15 @@ import 'package:fashion_shop/constant/g_colors.dart';
 import 'package:flutter/material.dart';
 
 class OvalButton extends StatelessWidget {
-  final String text;
   final VoidCallback onTap;
+  final Widget child;
+  final double? width;
 
   const OvalButton({
     Key? key,
-    required this.text,
     required this.onTap,
+    required this.child,
+    this.width,
   }) : super(key: key);
 
   @override
@@ -16,21 +18,14 @@ class OvalButton extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.symmetric(
-          vertical: 14,
-          horizontal: 26,
-        ),
+        width: width ?? double.infinity,
+        padding: const EdgeInsets.all(16),
+        alignment: Alignment.center,
         decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(36),
           color: GColors.primaryBtn,
-          borderRadius: BorderRadius.circular(24),
         ),
-        child: Text(
-          text,
-          style: const TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        child: child,
       ),
     );
   }

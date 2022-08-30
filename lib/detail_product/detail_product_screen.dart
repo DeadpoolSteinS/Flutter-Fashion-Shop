@@ -155,10 +155,10 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
                     ],
                   ),
                   OvalButton(
-                    text: "Add to Cart",
                     onTap: () {
                       addToCart();
                     },
+                    child: Text("Add to Cart"),
                   ),
                 ],
               ),

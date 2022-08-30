@@ -40,8 +40,8 @@ class CardViewpage extends StatelessWidget {
             ),
           ),
           OvalButton(
-            text: "Shop Now",
             onTap: () {},
+            child: Text("Shop Now"),
           ),
         ],
       ),

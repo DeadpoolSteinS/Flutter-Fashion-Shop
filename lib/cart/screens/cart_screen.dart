@@ -95,8 +95,8 @@ class CartScreen extends StatelessWidget {
                     ],
                   ),
                   OvalButton(
-                    text: "Checkout",
                     onTap: () {},
+                    child: Text("Checkout"),
                   ),
                 ],
               ),

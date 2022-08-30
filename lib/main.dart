@@ -1,5 +1,5 @@
-import 'package:fashion_shop/bottom_bar.dart';
 import 'package:fashion_shop/constant/g_colors.dart';
+import 'package:fashion_shop/features/intro/screens/intro_screen.dart';
 import 'package:fashion_shop/router.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       onGenerateRoute: (settings) => generateRoute(settings),
-      home: const BottomBar(),
+      home: IntroScreen(),
     );
   }
 }
