@@ -8,8 +8,10 @@ record and view your spending data every month, this application was created so 
 
 **RESULT**<br>
 - ### Demo
-![alt text](https://github.com/DeadpoolSteinS/Expenditure-App-with-Flutter/blob/master/readme/exp-flutter_1.jpg)
-![alt text](https://github.com/DeadpoolSteinS/Expenditure-App-with-Flutter/blob/master/readme/exp-flutter_form.jpg)
-![alt text](https://github.com/DeadpoolSteinS/Expenditure-App-with-Flutter/blob/master/readme/exp-flutter_report.jpg)<br>
+![alt text](https://github.com/DeadpoolSteinS/Flutter-Fashion-Shop/blob/master/github_assets/intro_screen.jpg)
+![alt text](https://github.com/DeadpoolSteinS/Flutter-Fashion-Shop/blob/master/github_assets/home_screen.jpg)
+![alt text](https://github.com/DeadpoolSteinS/Flutter-Fashion-Shop/blob/master/github_assets/detail_screen.jpg)
+![alt text](https://github.com/DeadpoolSteinS/Flutter-Fashion-Shop/blob/master/github_assets/cart_screen.jpg)
+![alt text](https://github.com/DeadpoolSteinS/Flutter-Fashion-Shop/blob/master/github_assets/profile_screen.jpg)<br>
 
 ## Terima Kasih
