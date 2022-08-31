@@ -1,11 +1,11 @@
-import 'package:fashion_shop/cart/screens/cart_screen.dart';
 import 'package:fashion_shop/constant/g_colors.dart';
-import 'package:fashion_shop/home/home_page.dart';
+import 'package:fashion_shop/features/cart/screens/cart_screen.dart';
+import 'package:fashion_shop/features/home/home_page.dart';
 import 'package:fashion_shop/profile/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 class BottomBar extends StatefulWidget {
-  static const String routeName = '/';
+  static const String routeName = '/primary-home';
   const BottomBar({Key? key}) : super(key: key);
 
   @override
@@ -13,7 +13,7 @@ class BottomBar extends StatefulWidget {
 }
 
 class _BottomBarState extends State<BottomBar> {
-  int _page = 4;
+  int _page = 0;
 
   List<Widget> listPage = [
     const HomePage(),

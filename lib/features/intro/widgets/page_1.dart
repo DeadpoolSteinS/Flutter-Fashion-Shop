@@ -1,3 +1,4 @@
+import 'package:fashion_shop/bottom_bar.dart';
 import 'package:fashion_shop/constant/oval_button.dart';
 import 'package:flutter/material.dart';
 
@@ -51,7 +52,13 @@ class Page1 extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   OvalButton(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamedAndRemoveUntil(
+                        context,
+                        BottomBar.routeName,
+                        (route) => false,
+                      );
+                    },
                     child: const Text(
                       "Next",
                       style: TextStyle(

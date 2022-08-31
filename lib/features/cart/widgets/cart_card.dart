@@ -1,8 +1,14 @@
 import 'package:fashion_shop/constant/g_colors.dart';
+import 'package:fashion_shop/models/cart_model.dart';
 import 'package:flutter/material.dart';
 
 class CartCard extends StatefulWidget {
-  const CartCard({Key? key}) : super(key: key);
+  final Cart cart;
+
+  const CartCard({
+    Key? key,
+    required this.cart,
+  }) : super(key: key);
 
   @override
   State<CartCard> createState() => _CartCardState();
@@ -23,8 +29,9 @@ class _CartCardState extends State<CartCard> {
           Container(
             width: 110,
             decoration: BoxDecoration(
-              image: const DecorationImage(
-                image: AssetImage('assets/product_1.jpg'),
+              image: DecorationImage(
+                image: NetworkImage(widget.cart.product.images[0]),
+                fit: BoxFit.cover,
               ),
               borderRadius: BorderRadius.circular(8),
             ),
@@ -39,18 +46,18 @@ class _CartCardState extends State<CartCard> {
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         Text(
-                          "Jacket With Pockets",
-                          style: TextStyle(
+                          widget.cart.product.name,
+                          style: const TextStyle(
                             color: GColors.fontColor,
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         Text(
-                          "Zara",
-                          style: TextStyle(
+                          widget.cart.product.merk,
+                          style: const TextStyle(
                             color: Colors.black54,
                           ),
                         ),
@@ -121,9 +128,9 @@ class _CartCardState extends State<CartCard> {
                         color: Colors.redAccent.withOpacity(0.3),
                         borderRadius: BorderRadius.circular(4),
                       ),
-                      child: const Text(
-                        "QTY: 01",
-                        style: TextStyle(
+                      child: Text(
+                        "QTY: ${widget.cart.product.quantity}",
+                        style: const TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -148,7 +155,7 @@ class _CartCardState extends State<CartCard> {
                           ),
                         ),
                         const SizedBox(width: 8),
-                        const Text("01"),
+                        Text("${widget.cart.quantity}"),
                         const SizedBox(width: 8),
                         Container(
                           decoration: BoxDecoration(
@@ -165,18 +172,19 @@ class _CartCardState extends State<CartCard> {
                       ],
                     ),
                     Row(
-                      children: const [
+                      children: [
                         Text(
-                          r"$50.00",
-                          style: TextStyle(
+                          r"$"
+                          "${widget.cart.product.price * widget.cart.quantity}",
+                          style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(width: 4),
+                        const SizedBox(width: 4),
                         Text(
-                          r"$65.00",
-                          style: TextStyle(
+                          r"$" "${widget.cart.product.price}",
+                          style: const TextStyle(
                             color: Colors.black54,
                             fontSize: 12,
                           ),

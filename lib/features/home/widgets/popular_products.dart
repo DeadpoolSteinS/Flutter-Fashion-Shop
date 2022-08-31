@@ -1,4 +1,4 @@
-import 'package:fashion_shop/home/widgets/popular/card_popular.dart';
+import 'package:fashion_shop/features/home/widgets/popular/card_popular.dart';
 import 'package:fashion_shop/constant/title_with_btn.dart';
 import 'package:fashion_shop/models/product_model.dart';
 import 'package:flutter/material.dart';

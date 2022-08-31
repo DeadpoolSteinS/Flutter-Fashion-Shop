@@ -158,7 +158,14 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
                     onTap: () {
                       addToCart();
                     },
-                    child: Text("Add to Cart"),
+                    height: 50,
+                    child: const Text(
+                      "Add to Cart",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ],
               ),

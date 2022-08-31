@@ -4,6 +4,7 @@ import 'package:fashion_shop/features/intro/widgets/transparent_button.dart';
 import 'package:flutter/material.dart';
 
 class IntroScreen extends StatefulWidget {
+  static const String routeName = '/introduction';
   const IntroScreen({Key? key}) : super(key: key);
 
   @override

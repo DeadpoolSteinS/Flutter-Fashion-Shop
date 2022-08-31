@@ -5,12 +5,16 @@ class OvalButton extends StatelessWidget {
   final VoidCallback onTap;
   final Widget child;
   final double? width;
+  final double? height;
+  final Color? color;
 
   const OvalButton({
     Key? key,
     required this.onTap,
     required this.child,
     this.width,
+    this.height,
+    this.color,
   }) : super(key: key);
 
   @override
@@ -18,12 +22,13 @@ class OvalButton extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        width: width ?? double.infinity,
+        width: width,
+        height: height,
         padding: const EdgeInsets.all(16),
         alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(36),
-          color: GColors.primaryBtn,
+          color: color ?? GColors.primaryBtn,
         ),
         child: child,
       ),

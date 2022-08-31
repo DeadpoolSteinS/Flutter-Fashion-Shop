@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       onGenerateRoute: (settings) => generateRoute(settings),
-      home: IntroScreen(),
+      home: const IntroScreen(),
     );
   }
 }
