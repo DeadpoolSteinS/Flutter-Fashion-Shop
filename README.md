@@ -1,10 +1,12 @@
 # Fashion Shop
-record and view your spending data every month, this application was created so you can find out what your money is running out for.
+an online fashion store application that sells famous fashion items.
 
 ### Features
-- using local storage
-- simple design
-- there is a chart to make it easier
+- Online
+- BLoC System
+- MongoDB
+- Introduction Page
+- Cart
 
 **RESULT**<br>
 - ### Demo
