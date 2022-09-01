@@ -32,8 +32,9 @@ migrate_working_dir/
 .pub/
 /build/
 
-# server is different repo
+# node modules server
 server/
+/server/
 
 # Web related
 lib/generated_plugin_registrant.dart
