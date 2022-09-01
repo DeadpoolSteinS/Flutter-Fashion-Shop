@@ -7,6 +7,7 @@ class OvalButton extends StatelessWidget {
   final double? width;
   final double? height;
   final Color? color;
+  final double? verticalPadding;
 
   const OvalButton({
     Key? key,
@@ -15,6 +16,7 @@ class OvalButton extends StatelessWidget {
     this.width,
     this.height,
     this.color,
+    this.verticalPadding,
   }) : super(key: key);
 
   @override
@@ -24,7 +26,10 @@ class OvalButton extends StatelessWidget {
       child: Container(
         width: width,
         height: height,
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: verticalPadding ?? 12,
+        ),
         alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(36),

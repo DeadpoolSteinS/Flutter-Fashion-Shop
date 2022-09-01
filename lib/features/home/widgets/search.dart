@@ -1,15 +1,10 @@
 import 'package:fashion_shop/constant/g_colors.dart';
 import 'package:flutter/material.dart';
 
-class Search extends StatefulWidget {
-  const Search({Key? key}) : super(key: key);
+class Search extends StatelessWidget {
+  Search({Key? key}) : super(key: key);
 
-  @override
-  State<Search> createState() => _SearchState();
-}
-
-class _SearchState extends State<Search> {
-  TextEditingController searchController = TextEditingController();
+  final TextEditingController searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 // ip is labil
-String uri = 'http://192.168.0.8:3000';
+// String uri = 'http://192.168.0.8:3000';
 // String uri = 'http://localhost:3000';
 // String uri = 'http://amazon-clone-steins.heroku.com';
-// String uri = 'https://amazon-clone-steins.herokuapp.com';
+String uri = 'https://fashion-shop-server.herokuapp.com';
 
 class GVariables {
   // COLORS
