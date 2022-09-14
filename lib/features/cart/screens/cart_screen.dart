@@ -73,14 +73,22 @@ class _CartScreenState extends State<CartScreen> {
                   ),
                   const SizedBox(height: 8),
                   Expanded(
-                    child: ListView.builder(
-                      itemCount: carts.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        total +=
-                            carts[index].product.price * carts[index].quantity;
-                        return CartCard(cart: carts[index]);
-                      },
-                    ),
+                    child: Builder(builder: (context) {
+                      if (carts.isEmpty) {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      } else {
+                        return ListView.builder(
+                          itemCount: carts.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            total += carts[index].product.price *
+                                carts[index].quantity;
+                            return CartCard(cart: carts[index]);
+                          },
+                        );
+                      }
+                    }),
                   ),
                 ],
               ),

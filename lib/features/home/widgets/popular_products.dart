@@ -19,19 +19,32 @@ class PopularProducts extends StatelessWidget {
         children: [
           const TitleWithBtn(title: "Popular Products"),
           const SizedBox(height: 12),
-          GridView.builder(
-            shrinkWrap: true,
-            physics: const ScrollPhysics(),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              mainAxisSpacing: 16,
-              crossAxisSpacing: 16,
-              crossAxisCount: 2,
-            ),
-            itemCount: products.length,
-            itemBuilder: (BuildContext context, int index) {
-              return CardPopular(product: products[index]);
+          Builder(
+            builder: (BuildContext context) {
+              if (products.isEmpty) {
+                return const SizedBox(
+                  height: 150,
+                  child: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                );
+              } else {
+                return GridView.builder(
+                  shrinkWrap: true,
+                  physics: const ScrollPhysics(),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    mainAxisSpacing: 16,
+                    crossAxisSpacing: 16,
+                    crossAxisCount: 2,
+                  ),
+                  itemCount: products.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return CardPopular(product: products[index]);
+                  },
+                );
+              }
             },
-          )
+          ),
         ],
       ),
     );
